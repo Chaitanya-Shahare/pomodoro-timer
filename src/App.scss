@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+}
+
+.card {
+  height: 200px;
+  border: 1px solid white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 5px;
+  &__timer {
+    font-size: 3rem;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__btn {
+    padding: 0.25rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+
+    &--green {
+      background-color: green;
+    }
+    &--grey {
+      background-color: grey;
+    }
+    &--red {
+      background-color: red;
+    }
+  }
+}
