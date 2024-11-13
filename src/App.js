@@ -9,18 +9,25 @@ function App() {
   useEffect(() => {
     if (isRunning) {
       let timer = setInterval(() => {
-        if (seconds === 0) {
-
-          if (minutes === 0) {
-            setIsRunning(false);
-            return;
+        setSeconds((sec) => {
+          if (sec === 0) {
+            return 59;
+          } else {
+            return sec - 1;
           }
+        });
 
-          setSeconds(59);
-          setMinutes((min) => min - 1);
-        } else {
-          setSeconds((sec) => sec - 1);
-        }
+        setMinutes((min) => {
+          if (seconds === 0 && min !== 0) {
+            return min - 1;
+          } else if (min === 0 && seconds === 0) {
+            setIsRunning(false);
+            clearInterval(timer);
+            return 0;
+          } else {
+            return min;
+          }
+        });
       }, 1000);
 
       return () => {
